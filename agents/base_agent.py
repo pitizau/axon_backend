@@ -52,9 +52,36 @@ class BaseAgent:
             The response from the model.
         """
         self.logger.info(f"Executing prompt: {prompt[:100]}...")
-        # This is a placeholder for the actual prompt execution
-        # In a real application, you would send the prompt to the model and get a response
-        # For example:
-        # response = self.model.generate_content(prompt)
-        # return response.text
-        return f"This is a dummy response for the prompt: {prompt[:100]}..."
+        # This is a placeholder for the actual prompt execution.
+        # It now simulates the structured JSON output we expect from the LLM
+        # to allow the main application to run successfully.
+        
+        dummy_json_response = """
+        ```json
+        {
+          "summary": "This is a dummy analysis of a customer and orders database.",
+          "key_tables": [
+            {
+              "table_name": "customers",
+              "role": "Dimension",
+              "description": "Stores customer information."
+            },
+            {
+              "table_name": "orders",
+              "role": "Fact",
+              "description": "Stores order information, linking to customers."
+            }
+          ],
+          "relationships": [
+            {
+              "from_table": "orders",
+              "from_column": "customer_id",
+              "to_table": "customers",
+              "to_column": "customer_id",
+              "relationship_type": "Many-to-One"
+            }
+          ]
+        }
+        ```
+        """
+        return dummy_json_response

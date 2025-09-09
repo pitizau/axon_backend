@@ -43,3 +43,409 @@ Your analysis should include:
 2025-09-09 22:09:25,731 - MockConnector - INFO - Mock Disconnection Successful from 'mock-db'.
 2025-09-09 22:09:25,731 - root - INFO - --- Schema Analysis Report ---
 2025-09-09 22:09:25,731 - root - INFO - --- End of Report ---
+2025-09-09 22:17:00,710 - root - INFO - Starting Axon application...
+2025-09-09 22:17:00,711 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:17:00,711 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:17:00,711 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:17:00,711 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:17:00,711 - CsvConnector - INFO - Connecting to CSV data source at 'data/source_schema.csv'...
+2025-09-09 22:17:00,715 - CsvConnector - INFO - CSV data source is accessible.
+2025-09-09 22:17:00,716 - CsvConnector - INFO - Fetching schema from data/source_schema.csv...
+2025-09-09 22:17:00,719 - CsvConnector - INFO - Successfully loaded schema with 5 rows.
+2025-09-09 22:17:00,719 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:17:00,719 - SourceAnalysisAgent - ERROR - An error occurred during source analysis: '\n  "summary"'
+Traceback (most recent call last):
+  File "C:\Users\RichieP\Documents\GitHub\bagent-main\agents\source_agent.py", line 41, in run
+    analysis_report_dict = self.schema_parser.analyze_schema(
+        schema_df,
+        SCHEMA_ANALYSIS_PROMPT_ADVANCED
+    )
+  File "C:\Users\RichieP\Documents\GitHub\bagent-main\tools\schema_parser.py", line 36, in analyze_schema
+    prompt = analysis_prompt.format(schema_json=schema_json)
+KeyError: '\n  "summary"'
+2025-09-09 22:17:00,720 - CsvConnector - INFO - Disconnected from CSV data source.
+2025-09-09 22:17:00,720 - root - INFO - --- Schema Analysis Report (Advanced) ---
+2025-09-09 22:17:00,720 - root - INFO - --- End of Report ---
+2025-09-09 22:17:35,273 - root - INFO - Starting Axon application...
+2025-09-09 22:17:35,274 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:17:35,274 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:17:35,274 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:17:35,274 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:17:35,274 - CsvConnector - INFO - Connecting to CSV data source at 'data/source_schema.csv'...
+2025-09-09 22:17:35,275 - CsvConnector - INFO - CSV data source is accessible.
+2025-09-09 22:17:35,275 - CsvConnector - INFO - Fetching schema from data/source_schema.csv...
+2025-09-09 22:17:35,277 - CsvConnector - INFO - Successfully loaded schema with 5 rows.
+2025-09-09 22:17:35,278 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:17:35,278 - SourceAnalysisAgent - ERROR - An error occurred during source analysis: '\n  "summary"'
+Traceback (most recent call last):
+  File "C:\Users\RichieP\Documents\GitHub\bagent-main\agents\source_agent.py", line 41, in run
+    analysis_report_dict = self.schema_parser.analyze_schema(
+        schema_df,
+        SCHEMA_ANALYSIS_PROMPT_ADVANCED
+    )
+  File "C:\Users\RichieP\Documents\GitHub\bagent-main\tools\schema_parser.py", line 36, in analyze_schema
+    prompt = analysis_prompt.format(schema_json=schema_json)
+KeyError: '\n  "summary"'
+2025-09-09 22:17:35,279 - CsvConnector - INFO - Disconnected from CSV data source.
+2025-09-09 22:17:35,279 - root - INFO - --- Schema Analysis Report (Advanced) ---
+2025-09-09 22:17:35,279 - root - INFO - --- End of Report ---
+2025-09-09 22:19:07,150 - root - INFO - Starting Axon application...
+2025-09-09 22:19:07,150 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:19:07,150 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:19:07,151 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:19:07,151 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:19:07,151 - CsvConnector - INFO - Connecting to CSV data source at 'data/source_schema.csv'...
+2025-09-09 22:19:07,151 - CsvConnector - INFO - CSV data source is accessible.
+2025-09-09 22:19:07,152 - CsvConnector - INFO - Fetching schema from data/source_schema.csv...
+2025-09-09 22:19:07,154 - CsvConnector - INFO - Successfully loaded schema with 5 rows.
+2025-09-09 22:19:07,154 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:19:07,154 - SourceAnalysisAgent - INFO - Executing prompt: 
+Analyze the database schema provided below. Based on the table and column names, provide a structur...
+2025-09-09 22:19:07,154 - SchemaParser - ERROR - Could not parse JSON from model response: Expecting value: line 1 column 1 (char 0)
+2025-09-09 22:19:07,154 - SourceAnalysisAgent - INFO - Schema analysis complete.
+2025-09-09 22:19:07,155 - CsvConnector - INFO - Disconnected from CSV data source.
+2025-09-09 22:19:07,155 - root - INFO - --- Schema Analysis Report (Advanced) ---
+2025-09-09 22:19:07,155 - root - INFO - --- End of Report ---
+2025-09-09 22:20:58,251 - root - INFO - Starting Axon application...
+2025-09-09 22:20:58,252 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:20:58,252 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:20:58,252 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:20:58,252 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:20:58,252 - CsvConnector - INFO - Connecting to CSV data source at 'data/source_schema.csv'...
+2025-09-09 22:20:58,253 - CsvConnector - INFO - CSV data source is accessible.
+2025-09-09 22:20:58,253 - CsvConnector - INFO - Fetching schema from data/source_schema.csv...
+2025-09-09 22:20:58,255 - CsvConnector - INFO - Successfully loaded schema with 5 rows.
+2025-09-09 22:20:58,255 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:20:58,256 - SourceAnalysisAgent - INFO - Executing prompt: 
+Analyze the database schema provided below. Based on the table and column names, provide a structur...
+2025-09-09 22:20:58,256 - SchemaParser - INFO - Successfully parsed structured JSON from model response.
+2025-09-09 22:20:58,256 - SourceAnalysisAgent - INFO - Schema analysis complete.
+2025-09-09 22:20:58,256 - CsvConnector - INFO - Disconnected from CSV data source.
+2025-09-09 22:20:58,256 - root - INFO - --- Schema Analysis Report (Advanced) ---
+2025-09-09 22:20:58,256 - root - INFO - --- End of Report ---
+2025-09-09 22:26:42,687 - root - INFO - Starting Axon application...
+2025-09-09 22:26:42,687 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:26:42,688 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:26:42,688 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:26:42,688 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:26:42,688 - CsvConnector - INFO - Connecting to CSV data source at 'data/source_schema.csv'...
+2025-09-09 22:26:42,689 - CsvConnector - INFO - CSV data source is accessible.
+2025-09-09 22:26:42,689 - CsvConnector - INFO - Fetching schema from data/source_schema.csv...
+2025-09-09 22:26:42,691 - CsvConnector - INFO - Successfully loaded schema with 5 rows.
+2025-09-09 22:26:42,691 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:26:42,691 - SourceAnalysisAgent - INFO - Executing prompt: 
+Analyze the database schema provided below. Based on the table and column names, provide a structur...
+2025-09-09 22:26:42,691 - SchemaParser - INFO - Successfully parsed structured JSON from model response.
+2025-09-09 22:26:42,691 - SourceAnalysisAgent - INFO - Schema analysis complete.
+2025-09-09 22:26:42,692 - CsvConnector - INFO - Disconnected from CSV data source.
+2025-09-09 22:26:42,692 - root - INFO - --- Schema Analysis Report (Advanced) ---
+2025-09-09 22:26:42,692 - root - INFO - --- End of Report ---
+2025-09-09 22:33:24,320 - root - INFO - Starting Axon application...
+2025-09-09 22:33:24,321 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:33:24,321 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:33:24,321 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:33:24,321 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:33:24,321 - CsvConnector - INFO - Connecting to CSV data source at 'data/source_schema.csv'...
+2025-09-09 22:33:24,328 - CsvConnector - INFO - CSV data source is accessible.
+2025-09-09 22:33:24,328 - CsvConnector - INFO - Fetching schema from data/source_schema.csv...
+2025-09-09 22:33:24,330 - CsvConnector - INFO - Successfully loaded schema with 5 rows.
+2025-09-09 22:33:24,332 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:33:24,333 - SourceAnalysisAgent - INFO - Executing prompt: 
+Analyze the database schema provided below. Based on the table and column names, provide a structur...
+2025-09-09 22:33:24,333 - SchemaParser - INFO - Successfully parsed structured JSON from model response.
+2025-09-09 22:33:24,333 - SourceAnalysisAgent - INFO - Schema analysis complete.
+2025-09-09 22:33:24,333 - CsvConnector - INFO - Disconnected from CSV data source.
+2025-09-09 22:33:24,333 - root - INFO - --- Schema Analysis Report (Advanced) ---
+2025-09-09 22:33:24,334 - root - INFO - --- End of Report ---
+2025-09-09 22:35:06,019 - root - INFO - Starting Axon application pipeline...
+2025-09-09 22:35:06,019 - root - INFO - [PIPELINE] Running Step 1: Source Analysis...
+2025-09-09 22:35:06,019 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:35:06,020 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:35:06,020 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:35:06,020 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:35:06,020 - CsvConnector - INFO - Connecting to CSV data source at 'data/source_schema.csv'...
+2025-09-09 22:35:06,021 - CsvConnector - INFO - CSV data source is accessible.
+2025-09-09 22:35:06,021 - CsvConnector - INFO - Fetching schema from data/source_schema.csv...
+2025-09-09 22:35:06,023 - CsvConnector - INFO - Successfully loaded schema with 5 rows.
+2025-09-09 22:35:06,023 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:35:06,024 - SourceAnalysisAgent - INFO - Executing prompt: 
+Analyze the database schema provided below. Based on the table and column names, provide a structur...
+2025-09-09 22:35:06,024 - SchemaParser - INFO - Successfully parsed structured JSON from model response.
+2025-09-09 22:35:06,024 - SourceAnalysisAgent - INFO - Schema analysis complete.
+2025-09-09 22:35:06,024 - CsvConnector - INFO - Disconnected from CSV data source.
+2025-09-09 22:35:06,024 - root - INFO - --- Schema Analysis Report (Advanced) ---
+2025-09-09 22:35:06,024 - root - INFO - 
+[PIPELINE] Running Step 2: Migration Planning...
+2025-09-09 22:35:06,025 - MigrationPlanAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:35:06,025 - MigrationPlanAgent - INFO - MigrationPlanAgent initialized.
+2025-09-09 22:35:06,025 - MigrationPlanAgent - INFO - Starting migration planning...
+2025-09-09 22:35:06,025 - MigrationPlanAgent - INFO - Executing prompt: 
+You are a database migration strategist. Based on the following JSON schema analysis, create a high...
+2025-09-09 22:35:06,025 - PlanWriter - INFO - Attempting to save migration plan to output/migration_plan.md...
+2025-09-09 22:35:06,026 - PlanWriter - INFO - Successfully saved plan to output/migration_plan.md
+2025-09-09 22:35:06,026 - MigrationPlanAgent - INFO - Migration plan successfully generated and saved to output/migration_plan.md
+2025-09-09 22:35:06,026 - root - INFO - --- Migration Plan Generated ---
+2025-09-09 22:35:06,026 - root - INFO - Plan saved to: output/migration_plan.md
+2025-09-09 22:35:06,026 - root - INFO - 
+[PIPELINE] Running Step 3: Schema Transformation...
+2025-09-09 22:35:06,026 - SchemaTransformationAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:35:06,026 - SchemaTransformationAgent - INFO - SchemaTransformationAgent initialized.
+2025-09-09 22:35:06,026 - SchemaTransformationAgent - INFO - Starting schema to SQL transformation...
+2025-09-09 22:35:06,027 - SchemaTransformationAgent - INFO - Executing prompt: 
+Act as an expert database architect. Your task is to convert the provided JSON schema analysis into...
+2025-09-09 22:35:06,027 - SqlWriter - INFO - Attempting to save SQL script to output/schema.sql...
+2025-09-09 22:35:06,027 - SqlWriter - INFO - Successfully saved SQL script to output/schema.sql
+2025-09-09 22:35:06,027 - SchemaTransformationAgent - INFO - SQL DDL successfully generated and saved to output/schema.sql
+2025-09-09 22:35:06,027 - root - INFO - --- SQL Schema Generated ---
+2025-09-09 22:35:06,028 - root - INFO - SQL script saved to: output/schema.sql
+2025-09-09 22:38:06,384 - root - INFO - Starting Axon application pipeline...
+2025-09-09 22:38:06,385 - root - INFO - [PIPELINE] Running Step 1: Source Analysis...
+2025-09-09 22:38:06,385 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:38:06,385 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:38:06,386 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:38:06,386 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:38:06,386 - CsvConnector - INFO - Connecting to CSV data source at 'data/source_schema.csv'...
+2025-09-09 22:38:06,386 - CsvConnector - INFO - CSV data source is accessible.
+2025-09-09 22:38:06,386 - CsvConnector - INFO - Fetching schema from data/source_schema.csv...
+2025-09-09 22:38:06,389 - CsvConnector - INFO - Successfully loaded schema with 5 rows.
+2025-09-09 22:38:06,389 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:38:06,389 - SourceAnalysisAgent - INFO - Executing prompt: 
+Analyze the database schema provided below. Based on the table and column names, provide a structur...
+2025-09-09 22:38:06,389 - SchemaParser - INFO - Successfully parsed structured JSON from model response.
+2025-09-09 22:38:06,389 - SourceAnalysisAgent - INFO - Schema analysis complete.
+2025-09-09 22:38:06,390 - CsvConnector - INFO - Disconnected from CSV data source.
+2025-09-09 22:38:06,390 - root - INFO - --- Schema Analysis Report (Advanced) ---
+2025-09-09 22:38:06,390 - root - INFO - 
+[PIPELINE] Running Step 2: Migration Planning...
+2025-09-09 22:38:06,390 - MigrationPlanAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:38:06,390 - MigrationPlanAgent - INFO - MigrationPlanAgent initialized.
+2025-09-09 22:38:06,390 - MigrationPlanAgent - INFO - Starting migration planning...
+2025-09-09 22:38:06,390 - MigrationPlanAgent - INFO - Executing prompt: 
+You are a database migration strategist. Based on the following JSON schema analysis, create a high...
+2025-09-09 22:38:06,390 - PlanWriter - INFO - Attempting to save migration plan to output/migration_plan.md...
+2025-09-09 22:38:06,391 - PlanWriter - INFO - Successfully saved plan to output/migration_plan.md
+2025-09-09 22:38:06,391 - MigrationPlanAgent - INFO - Migration plan successfully generated and saved to output/migration_plan.md
+2025-09-09 22:38:06,391 - root - INFO - --- Migration Plan Generated ---
+2025-09-09 22:38:06,391 - root - INFO - Plan saved to: output/migration_plan.md
+2025-09-09 22:38:06,391 - root - INFO - 
+[PIPELINE] Running Step 3: Schema Transformation...
+2025-09-09 22:38:06,391 - SchemaTransformationAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:38:06,392 - SchemaTransformationAgent - INFO - SchemaTransformationAgent initialized.
+2025-09-09 22:38:06,392 - SchemaTransformationAgent - INFO - Starting schema to SQL transformation...
+2025-09-09 22:38:06,392 - SchemaTransformationAgent - INFO - Executing prompt: 
+Act as an expert database architect. Your task is to convert the provided JSON schema analysis into...
+2025-09-09 22:38:06,392 - SqlWriter - INFO - Attempting to save SQL script to output/schema.sql...
+2025-09-09 22:38:06,392 - SqlWriter - INFO - Successfully saved SQL script to output/schema.sql
+2025-09-09 22:38:06,393 - SchemaTransformationAgent - INFO - SQL DDL successfully generated and saved to output/schema.sql
+2025-09-09 22:38:06,393 - root - INFO - --- SQL Schema Generated ---
+2025-09-09 22:38:06,393 - root - INFO - SQL script saved to: output/schema.sql
+2025-09-09 22:38:39,524 - root - INFO - Starting Axon application pipeline...
+2025-09-09 22:38:39,525 - root - INFO - [PIPELINE] Running Step 1: Source Analysis...
+2025-09-09 22:38:39,525 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:38:39,525 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:38:39,525 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:38:39,525 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:38:39,525 - CsvConnector - INFO - Connecting to CSV data source at 'data/source_schema.csv'...
+2025-09-09 22:38:39,526 - CsvConnector - INFO - CSV data source is accessible.
+2025-09-09 22:38:39,526 - CsvConnector - INFO - Fetching schema from data/source_schema.csv...
+2025-09-09 22:38:39,528 - CsvConnector - INFO - Successfully loaded schema with 5 rows.
+2025-09-09 22:38:39,528 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:38:39,529 - SourceAnalysisAgent - INFO - Executing prompt: 
+Analyze the database schema provided below. Based on the table and column names, provide a structur...
+2025-09-09 22:38:39,529 - SchemaParser - INFO - Successfully parsed structured JSON from model response.
+2025-09-09 22:38:39,529 - SourceAnalysisAgent - INFO - Schema analysis complete.
+2025-09-09 22:38:39,529 - CsvConnector - INFO - Disconnected from CSV data source.
+2025-09-09 22:38:39,529 - root - INFO - --- Schema Analysis Report (Advanced) ---
+2025-09-09 22:38:39,530 - root - INFO - 
+[PIPELINE] Running Step 2: Migration Planning...
+2025-09-09 22:38:39,530 - MigrationPlanAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:38:39,530 - MigrationPlanAgent - INFO - MigrationPlanAgent initialized.
+2025-09-09 22:38:39,530 - MigrationPlanAgent - INFO - Starting migration planning...
+2025-09-09 22:38:39,530 - MigrationPlanAgent - INFO - Executing prompt: 
+You are a database migration strategist. Based on the following JSON schema analysis, create a high...
+2025-09-09 22:38:39,530 - PlanWriter - INFO - Attempting to save migration plan to output/migration_plan.md...
+2025-09-09 22:38:39,531 - PlanWriter - INFO - Successfully saved plan to output/migration_plan.md
+2025-09-09 22:38:39,531 - MigrationPlanAgent - INFO - Migration plan successfully generated and saved to output/migration_plan.md
+2025-09-09 22:38:39,531 - root - INFO - --- Migration Plan Generated ---
+2025-09-09 22:38:39,531 - root - INFO - Plan saved to: output/migration_plan.md
+2025-09-09 22:38:39,531 - root - INFO - 
+[PIPELINE] Running Step 3: Schema Transformation...
+2025-09-09 22:38:39,531 - SchemaTransformationAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:38:39,531 - SchemaTransformationAgent - INFO - SchemaTransformationAgent initialized.
+2025-09-09 22:38:39,531 - SchemaTransformationAgent - INFO - Starting schema to SQL transformation...
+2025-09-09 22:38:39,531 - SchemaTransformationAgent - INFO - Executing prompt: 
+Act as an expert database architect. Your task is to convert the provided JSON schema analysis into...
+2025-09-09 22:38:39,531 - SqlWriter - INFO - Attempting to save SQL script to output/schema.sql...
+2025-09-09 22:38:39,532 - SqlWriter - INFO - Successfully saved SQL script to output/schema.sql
+2025-09-09 22:38:39,532 - SchemaTransformationAgent - INFO - SQL DDL successfully generated and saved to output/schema.sql
+2025-09-09 22:38:39,532 - root - INFO - --- SQL Schema Generated ---
+2025-09-09 22:38:39,532 - root - INFO - SQL script saved to: output/schema.sql
+2025-09-09 22:41:38,581 - root - INFO - Starting Axon application pipeline...
+2025-09-09 22:41:38,581 - root - INFO - [PIPELINE] Running Step 1: Source Analysis...
+2025-09-09 22:41:38,582 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:41:38,582 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:41:38,582 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:41:38,582 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:41:38,582 - CsvConnector - INFO - Connecting to CSV data source at 'data/source_schema.csv'...
+2025-09-09 22:41:38,583 - CsvConnector - INFO - CSV data source is accessible.
+2025-09-09 22:41:38,583 - CsvConnector - INFO - Fetching schema from data/source_schema.csv...
+2025-09-09 22:41:38,585 - CsvConnector - INFO - Successfully loaded schema with 5 rows.
+2025-09-09 22:41:38,585 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:41:38,585 - SourceAnalysisAgent - INFO - Executing prompt: 
+Analyze the database schema provided below. Based on the table and column names, provide a structur...
+2025-09-09 22:41:38,586 - SchemaParser - INFO - Successfully parsed structured JSON from model response.
+2025-09-09 22:41:38,586 - SourceAnalysisAgent - INFO - Schema analysis complete.
+2025-09-09 22:41:38,586 - CsvConnector - INFO - Disconnected from CSV data source.
+2025-09-09 22:41:38,586 - root - INFO - --- Schema Analysis Report (Advanced) ---
+2025-09-09 22:41:38,586 - root - INFO - 
+[PIPELINE] Running Step 2: Migration Planning...
+2025-09-09 22:41:38,586 - MigrationPlanAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:41:38,586 - MigrationPlanAgent - INFO - MigrationPlanAgent initialized.
+2025-09-09 22:41:38,586 - MigrationPlanAgent - INFO - Starting migration planning...
+2025-09-09 22:41:38,587 - MigrationPlanAgent - INFO - Executing prompt: 
+You are a database migration strategist. Based on the following JSON schema analysis, create a high...
+2025-09-09 22:41:38,587 - PlanWriter - INFO - Attempting to save migration plan to output/migration_plan.md...
+2025-09-09 22:41:38,587 - PlanWriter - INFO - Successfully saved plan to output/migration_plan.md
+2025-09-09 22:41:38,587 - MigrationPlanAgent - INFO - Migration plan successfully generated and saved to output/migration_plan.md
+2025-09-09 22:41:38,587 - root - INFO - --- Migration Plan Generated ---
+2025-09-09 22:41:38,587 - root - INFO - Plan saved to: output/migration_plan.md
+2025-09-09 22:41:38,588 - root - INFO - 
+[PIPELINE] Running Step 3: Schema Transformation...
+2025-09-09 22:41:38,588 - SchemaTransformationAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:41:38,588 - SchemaTransformationAgent - INFO - SchemaTransformationAgent initialized.
+2025-09-09 22:41:38,588 - SchemaTransformationAgent - INFO - Starting schema to SQL transformation...
+2025-09-09 22:41:38,588 - SchemaTransformationAgent - INFO - Executing prompt: 
+Act as an expert database architect. Your task is to convert the provided JSON schema analysis into...
+2025-09-09 22:41:38,588 - SqlWriter - INFO - Attempting to save SQL script to output/schema.sql...
+2025-09-09 22:41:38,589 - SqlWriter - INFO - Successfully saved SQL script to output/schema.sql
+2025-09-09 22:41:38,589 - SchemaTransformationAgent - INFO - SQL DDL successfully generated and saved to output/schema.sql
+2025-09-09 22:41:38,589 - root - INFO - --- SQL Schema Generated ---
+2025-09-09 22:41:38,589 - root - INFO - SQL script saved to: output/schema.sql
+2025-09-09 22:41:50,272 - root - INFO - Starting Axon application pipeline...
+2025-09-09 22:41:50,273 - root - INFO - [PIPELINE] Running Step 1: Source Analysis...
+2025-09-09 22:41:50,273 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:41:50,273 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:41:50,273 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:41:50,273 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:41:50,273 - CsvConnector - INFO - Connecting to CSV data source at 'data/source_schema.csv'...
+2025-09-09 22:41:50,274 - CsvConnector - INFO - CSV data source is accessible.
+2025-09-09 22:41:50,274 - CsvConnector - INFO - Fetching schema from data/source_schema.csv...
+2025-09-09 22:41:50,276 - CsvConnector - INFO - Successfully loaded schema with 5 rows.
+2025-09-09 22:41:50,276 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:41:50,276 - SourceAnalysisAgent - INFO - Executing prompt: 
+Analyze the database schema provided below. Based on the table and column names, provide a structur...
+2025-09-09 22:41:50,277 - SchemaParser - INFO - Successfully parsed structured JSON from model response.
+2025-09-09 22:41:50,277 - SourceAnalysisAgent - INFO - Schema analysis complete.
+2025-09-09 22:41:50,277 - CsvConnector - INFO - Disconnected from CSV data source.
+2025-09-09 22:41:50,277 - root - INFO - --- Schema Analysis Report (Advanced) ---
+2025-09-09 22:41:50,278 - root - INFO - 
+[PIPELINE] Running Step 2: Migration Planning...
+2025-09-09 22:41:50,278 - MigrationPlanAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:41:50,278 - MigrationPlanAgent - INFO - MigrationPlanAgent initialized.
+2025-09-09 22:41:50,278 - MigrationPlanAgent - INFO - Starting migration planning...
+2025-09-09 22:41:50,278 - MigrationPlanAgent - INFO - Executing prompt: 
+You are a database migration strategist. Based on the following JSON schema analysis, create a high...
+2025-09-09 22:41:50,278 - PlanWriter - INFO - Attempting to save migration plan to output/migration_plan.md...
+2025-09-09 22:41:50,279 - PlanWriter - INFO - Successfully saved plan to output/migration_plan.md
+2025-09-09 22:41:50,279 - MigrationPlanAgent - INFO - Migration plan successfully generated and saved to output/migration_plan.md
+2025-09-09 22:41:50,279 - root - INFO - --- Migration Plan Generated ---
+2025-09-09 22:41:50,279 - root - INFO - Plan saved to: output/migration_plan.md
+2025-09-09 22:41:50,279 - root - INFO - 
+[PIPELINE] Running Step 3: Schema Transformation...
+2025-09-09 22:41:50,279 - SchemaTransformationAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:41:50,279 - SchemaTransformationAgent - INFO - SchemaTransformationAgent initialized.
+2025-09-09 22:41:50,279 - SchemaTransformationAgent - INFO - Starting schema to SQL transformation...
+2025-09-09 22:41:50,280 - SchemaTransformationAgent - INFO - Executing prompt: 
+Act as an expert database architect. Your task is to convert the provided JSON schema analysis into...
+2025-09-09 22:41:50,280 - SqlWriter - INFO - Attempting to save SQL script to output/schema.sql...
+2025-09-09 22:41:50,280 - SqlWriter - INFO - Successfully saved SQL script to output/schema.sql
+2025-09-09 22:41:50,280 - SchemaTransformationAgent - INFO - SQL DDL successfully generated and saved to output/schema.sql
+2025-09-09 22:41:50,280 - root - INFO - --- SQL Schema Generated ---
+2025-09-09 22:41:50,280 - root - INFO - SQL script saved to: output/schema.sql
+2025-09-09 22:44:20,389 - root - INFO - Starting Axon application pipeline...
+2025-09-09 22:44:20,390 - MemoryManager - INFO - Created new memory file at output/memory.json
+2025-09-09 22:44:20,391 - root - INFO - 
+[PIPELINE] Loading context from memory...
+2025-09-09 22:44:20,391 - MemoryManager - INFO - Loading memories...
+2025-09-09 22:44:20,391 - root - INFO - 
+[PIPELINE] Running Step 1: Source Analysis...
+2025-09-09 22:44:20,391 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:44:20,391 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:44:20,391 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:44:20,392 - root - ERROR - An application pipeline error occurred: SourceAnalysisAgent.run() got an unexpected keyword argument 'context'
+Traceback (most recent call last):
+  File "C:\Users\RichieP\Documents\GitHub\bagent-main\main.py", line 48, in main
+    analysis_report_str = analysis_agent.run(context=context)
+TypeError: SourceAnalysisAgent.run() got an unexpected keyword argument 'context'
+2025-09-09 22:44:28,730 - root - INFO - Starting Axon application pipeline...
+2025-09-09 22:44:28,731 - root - INFO - 
+[PIPELINE] Loading context from memory...
+2025-09-09 22:44:28,731 - MemoryManager - INFO - Loading memories...
+2025-09-09 22:44:28,731 - root - INFO - 
+[PIPELINE] Running Step 1: Source Analysis...
+2025-09-09 22:44:28,731 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:44:28,732 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:44:28,732 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:44:28,732 - root - ERROR - An application pipeline error occurred: SourceAnalysisAgent.run() got an unexpected keyword argument 'context'
+Traceback (most recent call last):
+  File "C:\Users\RichieP\Documents\GitHub\bagent-main\main.py", line 48, in main
+    analysis_report_str = analysis_agent.run(context=context)
+TypeError: SourceAnalysisAgent.run() got an unexpected keyword argument 'context'
+2025-09-09 22:49:09,461 - root - INFO - Starting Axon application pipeline...
+2025-09-09 22:49:09,462 - root - INFO - 
+[PIPELINE] Loading context from memory...
+2025-09-09 22:49:09,462 - MemoryManager - INFO - Loading memories...
+2025-09-09 22:49:09,462 - root - INFO - 
+[PIPELINE] Running Step 1: Source Analysis...
+2025-09-09 22:49:09,463 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:49:09,463 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:49:09,463 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:49:09,463 - root - ERROR - An application pipeline error occurred: SourceAnalysisAgent.run() got an unexpected keyword argument 'context'
+Traceback (most recent call last):
+  File "C:\Users\RichieP\Documents\GitHub\bagent-main\main.py", line 48, in main
+    analysis_report_str = analysis_agent.run(context=context)
+TypeError: SourceAnalysisAgent.run() got an unexpected keyword argument 'context'
+2025-09-09 22:51:37,333 - root - INFO - Starting Axon application pipeline...
+2025-09-09 22:51:37,334 - root - INFO - 
+[PIPELINE] Loading context from memory...
+2025-09-09 22:51:37,334 - MemoryManager - INFO - Loading memories...
+2025-09-09 22:51:37,334 - root - INFO - 
+[PIPELINE] Running Step 1: Source Analysis...
+2025-09-09 22:51:37,334 - CsvConnector - INFO - CSV Connector initialized for file: data/source_schema.csv
+2025-09-09 22:51:37,335 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:51:37,335 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:51:37,335 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:51:37,335 - CsvConnector - INFO - Connecting to CSV data source at 'data/source_schema.csv'...
+2025-09-09 22:51:37,335 - CsvConnector - INFO - CSV data source is accessible.
+2025-09-09 22:51:37,336 - CsvConnector - INFO - Fetching schema from data/source_schema.csv...
+2025-09-09 22:51:37,338 - CsvConnector - INFO - Successfully loaded schema with 5 rows.
+2025-09-09 22:51:37,338 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:51:37,338 - SourceAnalysisAgent - ERROR - An error occurred during source analysis: SchemaParser.analyze_schema() takes 3 positional arguments but 4 were given
+Traceback (most recent call last):
+  File "C:\Users\RichieP\Documents\GitHub\bagent-main\agents\source_agent.py", line 43, in run
+    analysis_report_dict = self.schema_parser.analyze_schema(
+        schema_df,
+        SCHEMA_ANALYSIS_PROMPT_ADVANCED,
+        context
+    )
+TypeError: SchemaParser.analyze_schema() takes 3 positional arguments but 4 were given
+2025-09-09 22:51:37,339 - CsvConnector - INFO - Disconnected from CSV data source.
+2025-09-09 22:51:37,339 - root - INFO - --- Schema Analysis Report (Advanced) ---
+2025-09-09 22:51:37,339 - root - INFO - 
+[PIPELINE] Running Step 2: Migration Planning...
+2025-09-09 22:51:37,339 - MigrationPlanAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:51:37,339 - MigrationPlanAgent - INFO - MigrationPlanAgent initialized.
+2025-09-09 22:51:37,339 - root - ERROR - An application pipeline error occurred: MigrationPlanAgent.run() got an unexpected keyword argument 'context'
+Traceback (most recent call last):
+  File "C:\Users\RichieP\Documents\GitHub\bagent-main\main.py", line 66, in main
+    planning_agent.run(
+    ~~~~~~~~~~~~~~~~~~^
+        schema_analysis=analysis_report_dict,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        output_path=plan_output_path,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        context=context
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: MigrationPlanAgent.run() got an unexpected keyword argument 'context'

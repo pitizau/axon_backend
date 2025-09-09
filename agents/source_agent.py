@@ -1,9 +1,10 @@
-# In file: agents/source_analysis.py
+# In file: agents/source_agent.py
 
+import json
 from agents.base_agent import BaseAgent
 from tools.database_connector import BaseConnector
 from tools.schema_parser import SchemaParser
-from prompts.source_analysis_prompt import SCHEMA_ANALYSIS_PROMPT
+from prompts.source_analysis_prompt import SCHEMA_ANALYSIS_PROMPT_ADVANCED
 
 class SourceAnalysisAgent(BaseAgent):
     """
@@ -15,12 +16,16 @@ class SourceAnalysisAgent(BaseAgent):
         self.schema_parser = SchemaParser(agent=self)
         self.logger.info("SourceAnalysisAgent initialized.")
 
-    def run(self) -> str:
+    # CORRECTED: Added context parameter with a default value
+    def run(self, context: str = "") -> str:
         """
         Executes the full schema analysis process.
         
+        Args:
+            context: Optional context from previous pipeline runs.
+
         Returns:
-            A string containing the final schema analysis report.
+            A string containing the final schema analysis report as a JSON object.
         """
         self.logger.info("Starting source analysis...")
         
@@ -30,20 +35,23 @@ class SourceAnalysisAgent(BaseAgent):
             
             if schema_df.empty:
                 self.logger.warning("Schema is empty. No analysis to perform.")
-                return "Schema is empty. No analysis performed."
+                return json.dumps({"status": "error", "message": "Schema is empty."})
 
             self.logger.info(f"Schema retrieved with {len(schema_df)} columns.")
             
-            analysis_report = self.schema_parser.analyze_schema(
+            # Pass the context to the schema parser
+            analysis_report_dict = self.schema_parser.analyze_schema(
                 schema_df, 
-                SCHEMA_ANALYSIS_PROMPT
+                SCHEMA_ANALYSIS_PROMPT_ADVANCED,
+                context
             )
             
             self.logger.info("Schema analysis complete.")
-            return analysis_report
+            return json.dumps(analysis_report_dict, indent=2)
             
         except Exception as e:
-            self.logger.error(f"An error occurred during source analysis: {e}")
-            return f"Error: {e}"
+            self.logger.error(f"An error occurred during source analysis: {e}", exc_info=True)
+            return json.dumps({"status": "error", "message": str(e)})
         finally:
             self.connector.disconnect()
+

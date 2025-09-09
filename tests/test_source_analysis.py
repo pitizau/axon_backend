@@ -1,9 +1,9 @@
 # In file: tests/test_source_analysis.py
 
 import unittest
+import json
 from unittest.mock import MagicMock
-# This is the line to fix:
-from agents.source_agent import SourceAnalysisAgent 
+from agents.source_agent import SourceAnalysisAgent
 from tools.database_connector import MockConnector
 
 class TestSourceAnalysisAgent(unittest.TestCase):
@@ -11,7 +11,8 @@ class TestSourceAnalysisAgent(unittest.TestCase):
 
     def test_run_full_process(self):
         """
-        Tests that the agent can run its full analysis process.
+        Tests that the agent can run its full analysis process and now
+        returns a structured JSON error if the model response is bad.
         """
         # Use the MockConnector for this test
         mock_connector = MockConnector()
@@ -21,19 +22,30 @@ class TestSourceAnalysisAgent(unittest.TestCase):
             connector=mock_connector,
             model_name="test-model",
             project="test-project",
-            # I've also updated this to a valid region to be safe
             location="us-central1"
         )
         
-        # Mock the _execute_prompt method to avoid a real API call
-        agent._execute_prompt = MagicMock(return_value="This is a successful analysis.")
+        # Mock the _execute_prompt to return a valid JSON string this time
+        mock_llm_response = """
+        ```json
+        {
+          "summary": "This is a successful analysis.",
+          "key_tables": [],
+          "relationships": []
+        }
+        ```
+        """
+        agent._execute_prompt = MagicMock(return_value=mock_llm_response)
         
         # Run the agent
         result = agent.run()
         
         # Assertions
-        self.assertIn("successful analysis", result)
-        agent._execute_prompt.assert_called_once() 
+        # Check that the result is a valid JSON string
+        report_dict = json.loads(result)
+        self.assertIn("summary", report_dict)
+        self.assertEqual(report_dict["summary"], "This is a successful analysis.")
+        agent._execute_prompt.assert_called_once() # Verify the LLM was called
 
 if __name__ == "__main__":
     unittest.main()

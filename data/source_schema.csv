@@ -1,0 +1,6 @@
+table_name,column_name,data_type
+customers,customer_id,INTEGER
+customers,customer_name,VARCHAR
+orders,order_id,INTEGER
+orders,customer_id,INTEGER
+orders,order_date,TIMESTAMP
