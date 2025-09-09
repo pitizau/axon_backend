@@ -1,0 +1,30 @@
+2025-09-09 22:03:01,380 - root - INFO - Starting Axon application...
+2025-09-09 22:03:01,380 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:03:01,380 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:03:01,380 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:03:01,380 - MockConnector - INFO - Mock Connection Successful to 'mock-db'.
+2025-09-09 22:03:01,380 - MockConnector - INFO - Fetching mock schema...
+2025-09-09 22:03:01,381 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:03:01,381 - SourceAnalysisAgent - INFO - Executing prompt: 
+Analyze the following database schema provided in JSON format.
+Your analysis should include:
+1.  A ...
+2025-09-09 22:03:01,384 - SourceAnalysisAgent - INFO - Schema analysis complete.
+2025-09-09 22:03:01,384 - MockConnector - INFO - Mock Disconnection Successful from 'mock-db'.
+2025-09-09 22:03:01,384 - root - INFO - --- Schema Analysis Report ---
+2025-09-09 22:03:01,385 - root - INFO - --- End of Report ---
+2025-09-09 22:03:40,658 - root - INFO - Starting Axon application...
+2025-09-09 22:03:40,658 - SourceAnalysisAgent - INFO - Successfully initialized model: gemini-1.5-pro
+2025-09-09 22:03:40,658 - SourceAnalysisAgent - INFO - SourceAnalysisAgent initialized.
+2025-09-09 22:03:40,658 - SourceAnalysisAgent - INFO - Starting source analysis...
+2025-09-09 22:03:40,658 - MockConnector - INFO - Mock Connection Successful to 'mock-db'.
+2025-09-09 22:03:40,659 - MockConnector - INFO - Fetching mock schema...
+2025-09-09 22:03:40,659 - SourceAnalysisAgent - INFO - Schema retrieved with 5 columns.
+2025-09-09 22:03:40,659 - SourceAnalysisAgent - INFO - Executing prompt: 
+Analyze the following database schema provided in JSON format.
+Your analysis should include:
+1.  A ...
+2025-09-09 22:03:40,659 - SourceAnalysisAgent - INFO - Schema analysis complete.
+2025-09-09 22:03:40,659 - MockConnector - INFO - Mock Disconnection Successful from 'mock-db'.
+2025-09-09 22:03:40,659 - root - INFO - --- Schema Analysis Report ---
+2025-09-09 22:03:40,660 - root - INFO - --- End of Report ---

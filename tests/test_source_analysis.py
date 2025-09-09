@@ -2,7 +2,8 @@
 
 import unittest
 from unittest.mock import MagicMock
-from agents.source_analysis import SourceAnalysisAgent
+# Corrected import statement:
+from agents.source_agent import SourceAnalysisAgent
 from tools.database_connector import MockConnector
 
 class TestSourceAnalysisAgent(unittest.TestCase):

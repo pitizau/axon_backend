@@ -3,7 +3,8 @@
 import logging
 from config.logging_config import setup_logging
 from config import settings
-from agents.source_analysis import SourceAnalysisAgent
+# Corrected import statement:
+from agents.source_agent import SourceAnalysisAgent
 from tools.database_connector import MockConnector
 
 def main():

@@ -9,18 +9,21 @@ class TestBaseAgent(unittest.TestCase):
         agent = BaseAgent(
             model_name="test-model",
             project="test-project",
-            location="test-location"
+            # Corrected location to a valid GCP region
+            location="us-central1"
         )
         self.assertEqual(agent.model_name, "test-model")
         self.assertEqual(agent.project, "test-project")
-        self.assertEqual(agent.location, "test-location")
+        # Corrected location
+        self.assertEqual(agent.location, "us-central1")
 
     def test_run_method(self):
         """Tests that the run method raises a NotImplementedError."""
         agent = BaseAgent(
             model_name="test-model",
             project="test-project",
-            location="test-location"
+            # Corrected location to a valid GCP region
+            location="us-central1"
         )
         with self.assertRaises(NotImplementedError):
             agent.run()
