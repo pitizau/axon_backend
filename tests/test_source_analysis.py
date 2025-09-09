@@ -2,8 +2,8 @@
 
 import unittest
 from unittest.mock import MagicMock
-# Corrected import statement:
-from agents.source_agent import SourceAnalysisAgent
+# This is the line to fix:
+from agents.source_agent import SourceAnalysisAgent 
 from tools.database_connector import MockConnector
 
 class TestSourceAnalysisAgent(unittest.TestCase):
@@ -21,7 +21,8 @@ class TestSourceAnalysisAgent(unittest.TestCase):
             connector=mock_connector,
             model_name="test-model",
             project="test-project",
-            location="test-location"
+            # I've also updated this to a valid region to be safe
+            location="us-central1"
         )
         
         # Mock the _execute_prompt method to avoid a real API call
@@ -32,7 +33,7 @@ class TestSourceAnalysisAgent(unittest.TestCase):
         
         # Assertions
         self.assertIn("successful analysis", result)
-        agent._execute_prompt.assert_called_once() # Verify the LLM was called
+        agent._execute_prompt.assert_called_once() 
 
 if __name__ == "__main__":
     unittest.main()
