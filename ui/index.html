@@ -1,0 +1,159 @@
+<!-- In file: ui/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axon Pipeline Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .status-indicator { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .status-pending { background-color: #9CA3AF; }
+        .status-running { background-color: #3B82F6; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        .status-complete { background-color: #22C55E; }
+        .status-error { background-color: #EF4444; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+        .output-box { white-space: pre-wrap; word-wrap: break-word; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-bold text-gray-900">Axon Agentic Pipeline</h1>
+            <p class="text-lg text-gray-600 mt-2">Live Status Dashboard</p>
+        </header>
+
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <button id="runButton" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out disabled:bg-gray-400">
+                Run Pipeline
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Pipeline Status Column -->
+            <div class="lg:col-span-1 bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Pipeline Status</h2>
+                <ul id="status-list" class="space-y-4">
+                    <li id="step-analysis" class="flex items-center"><span class="status-indicator status-pending mr-3"></span>Source Analysis</li>
+                    <li id="step-planning" class="flex items-center"><span class="status-indicator status-pending mr-3"></span>Migration Planning</li>
+                    <li id="step-transformation" class="flex items-center"><span class="status-indicator status-pending mr-3"></span>Schema Transformation</li>
+                    <li id="step-validation" class="flex items-center"><span class="status-indicator status-pending mr-3"></span>Data Validation</li>
+                    <li id="step-optimization" class="flex items-center"><span class="status-indicator status-pending mr-3"></span>Query Optimization</li>
+                </ul>
+            </div>
+
+            <!-- Outputs Column -->
+            <div class="md:col-span-2 lg:col-span-2 bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Generated Outputs</h2>
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+                    <div>
+                        <h3 class="font-semibold mb-2 text-lg">Migration Plan</h3>
+                        <pre id="output-plan" class="bg-gray-50 rounded-md p-3 text-sm h-48 overflow-auto output-box">Awaiting output...</pre>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2 text-lg">Schema SQL</h3>
+                        <pre id="output-schema" class="bg-gray-50 rounded-md p-3 text-sm h-48 overflow-auto output-box">Awaiting output...</pre>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2 text-lg">Validation Queries</h3>
+                        <pre id="output-validation" class="bg-gray-50 rounded-md p-3 text-sm h-48 overflow-auto output-box">Awaiting output...</pre>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2 text-lg">Optimization Suggestions</h3>
+                        <pre id="output-optimization" class="bg-gray-50 rounded-md p-3 text-sm h-48 overflow-auto output-box">Awaiting output...</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const socket = io.connect('http://127.0.0.1:5001');
+        const runButton = document.getElementById('runButton');
+        const statusIndicators = {
+            analysis: document.querySelector('#step-analysis .status-indicator'),
+            planning: document.querySelector('#step-planning .status-indicator'),
+            transformation: document.querySelector('#step-transformation .status-indicator'),
+            validation: document.querySelector('#step-validation .status-indicator'),
+            optimization: document.querySelector('#step-optimization .status-indicator')
+        };
+        const outputElements = {
+            plan: document.getElementById('output-plan'),
+            schema: document.getElementById('output-schema'),
+            validation: document.getElementById('output-validation'),
+            optimization: document.getElementById('output-optimization')
+        };
+
+        function setStatus(element, status) {
+            element.className = 'status-indicator mr-3'; // Reset
+            if (status === 'running') {
+                element.classList.add('status-running');
+            } else if (status === 'complete') {
+                element.classList.add('status-complete');
+            } else if (status === 'error') {
+                element.classList.add('status-error');
+            } else {
+                element.classList.add('status-pending');
+            }
+        }
+
+        function resetUI() {
+            Object.values(statusIndicators).forEach(el => setStatus(el, 'pending'));
+            Object.values(outputElements).forEach(el => el.textContent = 'Awaiting output...');
+            runButton.disabled = false;
+            runButton.textContent = 'Run Pipeline';
+        }
+
+        runButton.addEventListener('click', () => {
+            resetUI();
+            runButton.disabled = true;
+            runButton.textContent = 'Pipeline Running...';
+            socket.emit('start_pipeline');
+        });
+
+        socket.on('connect', () => console.log('Connected to server.'));
+        socket.on('disconnect', () => console.log('Disconnected from server.'));
+        
+        socket.on('status_update', (data) => {
+            console.log('Status Update:', data);
+            const { step, status, message } = data;
+            
+            if (step in statusIndicators) {
+                setStatus(statusIndicators[step], status);
+            }
+            
+            if (status === 'complete' && step !== 'finished') {
+                // Mark previous step as complete if current is running
+                const steps = Object.keys(statusIndicators);
+                const currentIndex = steps.indexOf(step);
+                if(currentIndex > 0) {
+                     setStatus(statusIndicators[steps[currentIndex -1]], 'complete');
+                }
+            }
+            
+            if (step === 'finished') {
+                runButton.disabled = false;
+                runButton.textContent = 'Run Pipeline Again';
+                // Mark all as complete
+                Object.values(statusIndicators).forEach(el => setStatus(el, 'complete'));
+            }
+        });
+
+        socket.on('file_content', (data) => {
+            console.log('File Content:', data);
+            const { file_type, content } = data;
+            if (file_type in outputElements) {
+                outputElements[file_type].textContent = content;
+            }
+        });
+
+        // Initial state
+        resetUI();
+
+    </script>
+</body>
+</html>
